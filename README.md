@@ -54,6 +54,13 @@ npm run preview
 
 Beranda hanya memuat bundel utama (±57 KB gzip) + CSS (±9 KB gzip) + font yang di-preload; Toast UI, SweetAlert2, dan halaman penulis/admin dimuat saat dibutuhkan. Render pertama menunggu font siap (maks. 1,5 detik) agar judul tidak berpindah baris (CLS 0).
 
+## Deploy (Delcom + Jenkins)
+
+- Website Delcom: `ifs24044-pabwe2026-sk-p9-fe-reactjs.s1if.cloud`, teknologi **bun-reactjs**, database **none**. Nginx Delcom menyajikan hasil build secara statis dengan `try_files $uri $uri/ /index.html`, sehingga semua rute SPA bisa dibuka langsung.
+- Tambahkan ke tab `.env` website: `VITE_API_BASE_URL=https://ifs24044-pabwe2026-sk-p9-be-golang-gin.s1if.cloud/api`.
+- `Jenkinsfile`: Checkout → `bun install` → `vitest run --coverage` (Node 24) → Trivy (`HIGH,CRITICAL`, exit 1) → zip source → publish → redeploy Delcom. Kredensial `URL_REDEPLOY`, `URL_PROGRESS`, `DEPLOY_TOKEN`, `WEBSITE_ID` diisi lewat *Prepare an environment for the run* di job Jenkins.
+- `npm audit` hanya menyisakan 2 temuan *moderate* (DOMPurify bawaan Toast UI Editor); tidak ada HIGH/CRITICAL.
+
 ## Audit lokal
 
 Diukur dengan Lighthouse 12 dan axe-core 4 terhadap `vite preview` + backend lokal:

@@ -24,9 +24,11 @@ yarn-error.log*
 pnpm-debug.log*
 *.log
 
-# CI caches
+# CI caches & artefak
 .scannerwork/
 .trivy-cache/
+trivy-results.sarif
+*.zip
 
 # IDE & OS
 .idea/
