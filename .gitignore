@@ -1,6 +1,8 @@
 # Dependencies
 node_modules/
 .pnpm-store/
+# package-lock.json adalah sumber versi; bun.lock lokal bisa memuat versi lama (mis. rollup 4.68.6)
+bun.lock
 
 # Build output
 dist/
