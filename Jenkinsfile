@@ -44,7 +44,14 @@ pipeline {
 
                     echo "=== Installing Dependencies ==="
 
+                    # package-lock.json adalah sumber versi. bun.lock dan node_modules
+                    # dari build sebelumnya tidak ikut terhapus oleh checkout, jadi
+                    # dibersihkan agar versi lama (mis. rollup 4.68.6) tidak terpakai lagi.
+                    rm -rf node_modules bun.lock bun.lockb
+
                     bun install
+
+                    echo "rollup terpasang: $(grep '"version"' node_modules/rollup/package.json)"
 
                     echo "=== Dependencies Installed ==="
                 '''
