@@ -1,0 +1,31 @@
+{
+  "name": "ifs24044-pabwe2026-sk-p9-fe-reactjs",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@tabler/icons-react": "^3.52.0",
+    "@toast-ui/editor": "^3.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sweetalert2": "^11.26.25"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^2.1.8",
+    "jsdom": "^25.0.1",
+    "tailwindcss": "^4.3.5",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}
